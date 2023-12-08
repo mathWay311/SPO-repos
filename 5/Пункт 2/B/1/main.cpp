@@ -50,10 +50,10 @@ int main(int argc, char const *argv[])
   	int shmcontrol_semid; // Семафор контроля критической секции.
 	shmcontrol_semid = semget (IPC_PRIVATE, 1, IPC_CREAT|0666) ;
   
-  sembuf Plus1 = 			{shmcontrol_semid, 1, 0} ; 						//операция прибавляет единицу к семафору контроля критической секции
+  	sembuf Plus1 = 			{shmcontrol_semid, 1, 0} ; 						//операция прибавляет единицу к семафору контроля критической секции
 	sembuf Minus1 = 		{shmcontrol_semid, -1, 0} ; 					//операция вычитает единицу от семафора контроля критической секции
   
-  semop( shmcontrol_semid, &Plus1, 1); // Предустановка ресурса
+  	semop( shmcontrol_semid, &Plus1, 1); // Предустановка ресурса
 
 	int status2;
 	my_mem->counter = 0;

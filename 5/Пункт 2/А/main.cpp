@@ -82,10 +82,10 @@ int main(int argc, char const *argv[])
 	key_t key = 12345;
 	int shmid = shmget(key, sizeof(int) * count, IPC_CREAT|0666) ;
 
-  B = (int*)shmat(shmid,NULL,0);
+  	B = (int*)shmat(shmid,NULL,0);
 
-  unsigned chunk_size = A.size() / K;
-  std::cout << "<i> Размер куска для каждого потока: " << chunk_size << "\n";
+  	unsigned chunk_size = A.size() / K;
+  	std::cout << "<i> Размер куска для каждого потока: " << chunk_size << "\n";
   	// === Работа с разделяемой памятью массива (КОНЕЦ)
 
   // === Работа с разделяемой памятью суммы
@@ -136,9 +136,9 @@ int main(int argc, char const *argv[])
 		    		if ( (j % N + j / N)%2 == 1 ) // считаем нечетная ли сумма индексов
 		    		{
 		    			semop( shmcontrol_semid, &Minus1, 1); // Блокировка ресурса
-		        	mem_sum->sum += B[j];
-		        	mem_sum->counter += 1;
-		        	semop( shmcontrol_semid, &Plus1, 1); // Высвобождение ресурса
+			        	mem_sum->sum += B[j];
+			        	mem_sum->counter += 1;
+			        	semop( shmcontrol_semid, &Plus1, 1); // Высвобождение ресурса
 		    		}
 		    }
   			exit(0);

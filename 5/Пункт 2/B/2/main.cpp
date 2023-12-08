@@ -65,9 +65,9 @@ int main(int argc, char const *argv[])
 	}
 	std::cout << "Разделяемая строка: " << C_shared << std::endl;
 
-  	char stack[lenA][ NUMSTACK] ;
+  	char stack[lenA][ NUMSTACK] ; // Выделяем стек под clone-ы
 	
-	char param[lenA];
+	char param[lenA]; // Инициализируем массив параметров.
 	for (int i = 0; i < lenA; i++)
   	{
   		param[i] = A[i];
